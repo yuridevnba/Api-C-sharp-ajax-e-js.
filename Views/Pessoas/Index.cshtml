@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Pessoas Cadastradas";
+}
+
+<div class="p-5">
+    <div class="border border-light border-3 rounded">
+        <div class="container">
+            <div class=" p-5"> 
+            <div class="row">
+                <div class="col-8">
+                    <h6>Pessoas Cadastradas</h6>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-sm btn-outline-success novaPessoa">Nova Pessoa</button>
+                </div>
+
+                <hr/>
+
+                <div class="p-5 rounded shadow-sm id="divTabela"">
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            carregarDados();
+        });
+
+        function carregarDados() {
+            $.ajax({
+                url:"Pessoas/PegarTodos",
+                method:"Get",
+                sucess: function (respostaController) {
+                    montarTabela(pessoas);
+                }
+
+            });
+        }
+
+        function montarTabela(pessoas) {
+            var indice = 0;
+            var divTabela = document.getElementById("divTabela");
+            var tabela = '<table class = "table table-sm table-houver table-striped tabela">';
+        }
+
+    </script>
+}
