@@ -12,7 +12,7 @@
 
 
 
-        public string Profissão { get; set; }
+        public string Profissao { get; set; }
 
 
     }

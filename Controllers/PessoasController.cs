@@ -24,6 +24,22 @@ namespace WebApplication2.Controllers
         {
             return Json(await _contexto.Pessoas.ToListAsync());
         }
+        [HttpPost]
 
+        public async Task<JsonResult> NovaPessoa(Pessoa pessoa)
+        {
+            if (ModelState.IsValid)
+            {
+                await _contexto.Pessoas.AddAsync(pessoa);
+                await _contexto.SaveChangesAsync();
+                return Json(pessoa);
+            }
+
+            return Json(ModelState);
+        }
+    
+        
+
+        }
     }
-}
+
